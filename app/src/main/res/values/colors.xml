@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primaryColor">#2196F3</color>
+    <color name="primaryColorDark">#0D47A1</color>
+
+    <color name="item.recycler.menu_title">#8d8d8d</color>
+    <color name="item.recycler.menu_tv_title">#434343</color>
+    <color name="item.recycler.menu_tv">#747474</color>
+    <color name="item.recycler.menu_bg">#f5f5f5</color>
+
+    <color name="color_while">#ffffff</color>
+    <color name="background_default">#cccccc</color>
+    <color name="text_color_default">#1d1d1d</color>
+
+    <color name="item.recycler.grammar">#706cb2</color>
+</resources>

@@ -49,6 +49,12 @@ public class MenuRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
             MenuViewHolder menuViewHolder = (MenuViewHolder) holder;
             menuViewHolder.imgAvatarMenu.setImageResource(mMenus.get(position).getIdImage());
             menuViewHolder.tvMenu.setText(mMenus.get(position).getMenu());
+
+            if (mMenus.get(position).isSelected()) {
+                menuViewHolder.itemView.setBackgroundColor(0xff92bcec);
+            } else {
+                menuViewHolder.itemView.setBackgroundColor(0xfff5f5f5);
+            }
         }
     }
 
@@ -64,18 +70,20 @@ public class MenuRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
     private class MenuViewHolder extends RecyclerView.ViewHolder {
         ImageView imgAvatarMenu;
         TextView tvMenu;
+        View itemView;
 
         public MenuViewHolder(View itemView) {
             super(itemView);
 
             imgAvatarMenu = (ImageView) itemView.findViewById(R.id.imgAvatarMenu);
             tvMenu = (TextView) itemView.findViewById(R.id.tvMenu);
+            this.itemView = itemView;
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (mOnMenuClickListener != null) {
-                        mOnMenuClickListener.onClick(mMenus.get(getLayoutPosition()).getMenu());
+                        mOnMenuClickListener.onClick(getLayoutPosition());
                     }
                  }
             });
@@ -92,6 +100,6 @@ public class MenuRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
     }
 
     public interface OnMenuClickListener {
-        void onClick(String menu);
+        void onClick(int position);
     }
 }

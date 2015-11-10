@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">EnglishTest</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
+
+    <string name="title.menu.knowledge">TỔNG HỢP KIẾN THỨC</string>
+    <string name="title.menu.training">LUYỆN TẬP</string>
+    <string name="title.menu.toeic">TOEIC</string>
+    <string name="title.menu.relax">GIẢI TRÍ</string>
+
+    <string name="menu.knowledge.grammar">Ngữ pháp</string>
+    <string name="menu.knowledge.listening">Listening</string>
+    <string name="menu.knowledge.speaking">Speaking</string>
+
+    <string name="menu.training.grammar">Reading</string>
+    <string name="menu.training.listening">Listening</string>
+    <string name="menu.training.video">Video</string>
+    
+    <string name="menu.toeic.250.500">Toeic 250 - 500</string>
+    <string name="menu.toeic.500.750">Toeic 500 - 750</string>
+    <string name="menu.toeic.750.900">Toeic 750 - 900</string>
+    
+    <string name="menu.relax">Game đoán chữ</string>
+</resources>

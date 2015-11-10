@@ -10,13 +10,14 @@
         ></RelativeLayout>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:id="@+id/tvTitleMenu"
+        android:background="@color/item.recycler.menu_bg"
         android:textColor="@color/item.recycler.menu_tv_title"
         />
     <RelativeLayout
