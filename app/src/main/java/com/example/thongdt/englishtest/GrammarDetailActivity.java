@@ -19,6 +19,6 @@ public class GrammarDetailActivity extends FragmentActivity {
 
     @AfterViews
     void init() {
-
+        
     }
 }
