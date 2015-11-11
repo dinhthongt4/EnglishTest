@@ -14,11 +14,8 @@ import org.androidannotations.annotations.ViewById;
 @EActivity(R.layout.activity_grammar_detail)
 public class GrammarDetailActivity extends FragmentActivity {
 
-    @ViewById(R.id.recyclerViewGrammarDetail)
-    RecyclerView mRecyclerViewGrammarDetail;
-
     @AfterViews
     void init() {
-        
+
     }
 }

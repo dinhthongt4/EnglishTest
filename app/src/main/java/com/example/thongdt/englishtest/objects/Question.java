@@ -8,7 +8,9 @@ import com.orm.SugarRecord;
 public class Question extends SugarRecord<Question> {
 
     String question;
+    String translateQuestion;
     String answer;
+    String translateAnswer;
     String typeQuestion;
     String wrongAnswer1;
     String wrongAnswer2;

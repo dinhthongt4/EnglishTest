@@ -57,6 +57,11 @@ public class MainActivity extends FragmentActivity {
         mRecyclerViewDrawer.setAdapter(mMenuRecyclerViewAdapter);
 
         setListener();
+        getData();
+    }
+
+    private void getData() {
+
     }
 
     private void getListMenu() {

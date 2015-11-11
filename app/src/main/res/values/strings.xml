@@ -23,4 +23,6 @@
     <string name="menu.toeic.750.900">Toeic 750 - 900</string>
     
     <string name="menu.relax">Game đoán chữ</string>
+
+    <string name="btn_start">BẮT ĐẦU</string>
 </resources>

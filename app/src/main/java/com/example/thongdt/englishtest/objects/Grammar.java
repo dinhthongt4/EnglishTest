@@ -12,6 +12,15 @@ public class Grammar extends SugarRecord<Grammar> {
     private String use;
     private String spelling_rules;
     private String key;
+    private boolean isOpen;
+
+    public boolean isOpen() {
+        return isOpen;
+    }
+
+    public void setIsOpen(boolean isOpen) {
+        this.isOpen = isOpen;
+    }
 
     public String getStructure() {
         return structure;
