@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.thongdt.englishtest.R;
-import com.example.thongdt.englishtest.objects.Grammar;
+import com.example.thongdt.englishtest.objects.GrammarResponse;
 
 import java.util.ArrayList;
 
@@ -19,9 +19,9 @@ import java.util.ArrayList;
 
 public class GrammarRecyclerViewAdapter extends RecyclerView.Adapter<GrammarRecyclerViewAdapter.ViewHolder> {
 
-    private ArrayList<Grammar> mGrammars;
+    private ArrayList<GrammarResponse.Grammar> mGrammars;
 
-    public GrammarRecyclerViewAdapter(ArrayList<Grammar> grammars) {
+    public GrammarRecyclerViewAdapter(ArrayList<GrammarResponse.Grammar> grammars) {
         this.mGrammars = grammars;
     }
 
@@ -33,8 +33,8 @@ public class GrammarRecyclerViewAdapter extends RecyclerView.Adapter<GrammarRecy
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.tvTitle.setText(mGrammars.get(position).getTitle());
-        holder.imgAvatar.setImageResource(Integer.parseInt(mGrammars.get(position).getUrlAvatar()));
+        holder.tvTitle.setText(mGrammars.get(position).getName());
+        holder.imgAvatar.setImageResource(Integer.parseInt(mGrammars.get(position).getAvatar()));
     }
 
     @Override

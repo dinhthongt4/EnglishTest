@@ -1,7 +1,11 @@
 package com.example.thongdt.englishtest;
 
+import android.app.DownloadManager;
+import android.content.Context;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.PersistableBundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
@@ -10,19 +14,29 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.example.thongdt.englishtest.adapter.MenuRecyclerViewAdapter;
+import com.example.thongdt.englishtest.api.GetListGrammar;
 import com.example.thongdt.englishtest.fragment.GrammarFragment_;
+import com.example.thongdt.englishtest.objects.GrammarResponse;
 import com.example.thongdt.englishtest.objects.Menu;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit.Callback;
+import retrofit.RestAdapter;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends FragmentActivity {
@@ -61,6 +75,46 @@ public class MainActivity extends FragmentActivity {
     }
 
     private void getData() {
+        RestAdapter restAdapter = new RestAdapter.Builder().setEndpoint(getResources().getString(R.string.link_server))
+        .setLogLevel(RestAdapter.LogLevel.FULL).build();
+
+        GetListGrammar getListGrammar = restAdapter.create(GetListGrammar.class);
+        getListGrammar.getGrammar(new Callback<GrammarResponse>() {
+            @Override
+            public void success(GrammarResponse grammarResponse, Response response) {
+                Log.v("success", grammarResponse.getGrammar().size() + "");
+                file_download(grammarResponse.getGrammar().get(0).getAvatar());
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Log.v("errror", error + "");
+            }
+        });
+    }
+
+    public void file_download(String url) {
+        File direct = new File(Environment.getExternalStorageDirectory()
+                + "/dhaval_files");
+
+        if (!direct.exists()) {
+            direct.mkdirs();
+        }
+
+        DownloadManager mgr = (DownloadManager) this.getSystemService(Context.DOWNLOAD_SERVICE);
+
+        Uri downloadUri = Uri.parse(url);
+        DownloadManager.Request request = new DownloadManager.Request(
+                downloadUri);
+
+        request.setAllowedNetworkTypes(
+                DownloadManager.Request.NETWORK_WIFI
+                        | DownloadManager.Request.NETWORK_MOBILE)
+                .setAllowedOverRoaming(false).setTitle("Demo")
+                .setDescription("Something useful. No, really.")
+                .setDestinationInExternalPublicDir("/english", url+".jpg");
+
+        mgr.enqueue(request);
 
     }
 

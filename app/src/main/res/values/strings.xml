@@ -25,4 +25,8 @@
     <string name="menu.relax">Game đoán chữ</string>
 
     <string name="btn_start">BẮT ĐẦU</string>
+
+    <string name="link.server">http://192.168.56.1/english_test_skill/v1/index.php</string>
+    <string name="api.grammar">/grammar</string>
+
 </resources>

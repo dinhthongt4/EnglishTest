@@ -15,13 +15,13 @@ public class Question extends SugarRecord<Question> {
     String wrongAnswer1;
     String wrongAnswer2;
     String wrongAnswer3;
-    Grammar grammar;
+    GrammarResponse.Grammar grammar;
 
-    public Grammar getGrammar() {
+    public GrammarResponse.Grammar getGrammar() {
         return grammar;
     }
 
-    public void setGrammar(Grammar grammar) {
+    public void setGrammar(GrammarResponse.Grammar grammar) {
         this.grammar = grammar;
     }
 

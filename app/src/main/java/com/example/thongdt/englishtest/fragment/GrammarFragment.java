@@ -1,14 +1,14 @@
 package com.example.thongdt.englishtest.fragment;
 
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.thongdt.englishtest.R;
 import com.example.thongdt.englishtest.adapter.GrammarRecyclerViewAdapter;
+import com.example.thongdt.englishtest.api.GetListGrammar;
 import com.example.thongdt.englishtest.common.SpacesItemDecoration;
-import com.example.thongdt.englishtest.objects.Grammar;
+import com.example.thongdt.englishtest.objects.GrammarResponse;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
@@ -26,7 +26,7 @@ public class GrammarFragment extends Fragment {
     @ViewById(R.id.recyclerViewGrammar)
     RecyclerView mRecyclerViewGrammar;
 
-    private ArrayList<Grammar> mGrammars;
+    private ArrayList<GrammarResponse.Grammar> mGrammars;
     private GrammarRecyclerViewAdapter mGrammarRecyclerViewAdapter;
 
     @AfterViews
@@ -45,9 +45,12 @@ public class GrammarFragment extends Fragment {
 
 
     private void getData() {
-        Grammar grammar = new Grammar();
-        grammar.setTitle("Hien tai don");
-        grammar.setUrlAvatar(R.drawable.avatar + "");
+
+        GrammarResponse grammarResponse = new GrammarResponse();
+
+        GrammarResponse.Grammar grammar = grammarResponse.new Grammar();
+        grammar.setName("Hien tai don");
+        grammar.setAvatar(R.drawable.avatar + "");
         mGrammars.add(grammar);
         mGrammars.add(grammar);
         mGrammars.add(grammar);
